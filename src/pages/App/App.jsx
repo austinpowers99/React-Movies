@@ -1,25 +1,33 @@
-import { useState} from 'react';
-import { Routes, Route } from 'react-router-dom';
-import './App.css';
-import MovieDetailPage from '../MovieDetailPage/MovieDetailPage';
-import MoviesListPage from '../MoviesListPage/MoviesListPage';
+import React, { useState } from 'react';
+import {Routes, Route } from 'react-router-dom';
+import ActorListPage from '../ActorListPage/ActorListPage'
 import LoginPage from '../LoginPage/LoginPage';
-import ActorListPage from '../ActorListPage/ActorListPage';
+import MoviesListPage from '../MoviesListPage/MoviesListPage';
+import MovieDetailPage from '../MovieDetailPage/MovieDetailPage';
+import { movies } from '../data';
 
 export default function App() {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null)
+
+  function signUp(name){
+    setUser(name)
+  }
 
   return (
-    <main className='App'>
+    <main>
+      <h1>React Movies</h1>
       { user ?
-        <Routes>
-          <Route path='/' element={<MoviesListPage />}></Route>
-          <Route path='/movies/:movieName' element={<MoviesDetailPage />}></Route>
-          <Route path='/actors' element={<ActorListPage />}></Route>
-        </Routes>
+        <>
+          <NavBar user={user}/>
+          <Routes>
+              <Route path="/" element={<MoviesListPage movies={movies} />} />
+              <Route path="/movies/:movieName" element={<MovieDetailPage movies={movies} />} />
+              <Route path="/actors" element={<ActorListPage />} />
+          </Routes>
+        </>
         :
-        <MovieDetailPage />
+        <LoginPage signUp={signUp} />
       }
     </main>
-  );
+  )
 }

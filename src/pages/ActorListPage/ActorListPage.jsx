@@ -1,7 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 export default function ActorListPage() {
     return (
-        <h1>ActorListPage</h1>
-    )
+        <>
+            <h1>Actor List Page</h1>
+        </>
+    );
 }
