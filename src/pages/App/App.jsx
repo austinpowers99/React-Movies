@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import {Routes, Route } from 'react-router-dom';
 import ActorListPage from '../ActorListPage/ActorListPage'
-import LoginPage from '../LoginPage/LoginPage';
+import LoginPage from '../../components/LoginPage/LoginPage';
 import MoviesListPage from '../MoviesListPage/MoviesListPage';
 import MovieDetailPage from '../MovieDetailPage/MovieDetailPage';
+import NavBar from '../../components/NavBar/NavBar.jsx';
 import { movies } from '../data';
+import './App.css';
 
 export default function App() {
   const [user, setUser] = useState(null)

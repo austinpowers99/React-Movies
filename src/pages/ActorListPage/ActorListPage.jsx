@@ -1,9 +1,14 @@
 import React from 'react';
+import ActorCard from '../../pages/ActorCard/ActorCard'
 
-export default function ActorListPage() {
+export default function ActorListPage({ movies }) {
+    const cast = movies.map(movie => movie.cast);
+
     return (
         <>
-            <h1>Actor List Page</h1>
+        <div>
+            <ActorCard cast={cast} />
+        </div>
         </>
-    );
+    )
 }
