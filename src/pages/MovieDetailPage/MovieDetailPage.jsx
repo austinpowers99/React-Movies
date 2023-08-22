@@ -1,26 +1,20 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { movies } from '../data.js';
+import React from 'react'
+import { useParams } from 'react-router-dom'
 
-export default function MovieDetailPage() {
+export default function MovieDetailPage({movies}) {
     const { movieName } = useParams();
-    const movie = movies.find(movie => movie.title === movieName);
-
-    if (!movie) {
-        return <p>Movie not found</p>;
-    }
-
-    const { title, releaseDate, posterPath, cast } = movie;
+    const movie = movies.find(movie => movie.title === movieName)
 
     return (
         <>
-        <h1>Movie Detail Page</h1>
-        <div className="movie-detail">
-            <img src={posterPath} alt={title} />
-            <h2>{title}</h2>
-            <p>Release Date: {releaseDate}</p>
-            <p>Cast: {cast.join(', ')}</p>
+        <div>
+            <h2>{movie.title}</h2>
+            <p><b>Release Date:</b> {movie.releaseDate}</p>
+            <p><b>Cast:</b> {movie.cast.join(', ')}</p>
+        </div>
+        <div>
+            <img src="{movie.posterPath}" alt=''/>
         </div>
         </>
-    );
+    )
 }

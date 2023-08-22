@@ -8,11 +8,9 @@ export default function ActorCard({ cast }) {
     return (
         <div className='ActorCard'>
             {actors.map((actor, index) => (
-            <Card key={index} className='mb-2'>
-                <Card.Body>
-                <Card.Text>{actor}</Card.Text>
-                </Card.Body>
-            </Card>
+            <div key={index} className='mb-2'>
+                <div>{actor}</div>
+            </div>
             ))}
         </div>
     );

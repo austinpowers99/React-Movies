@@ -8,13 +8,11 @@ export default function MovieCard({ movie, index }) {
 
     return (
         <Link to={`/movies/${movie.title}`} className='text-decoration-none'>
-        <Card>
-            <Card.Img variant='top' src={imageURL} alt={movie.title} />
-            <Card.Body>
-            <Card.Title>{movie.title}</Card.Title>
-            <Card.Text>{movie.releaseDate}</Card.Text>
-            </Card.Body>
-        </Card>
+        <div>
+            <div variant='top' src={imageURL} alt={movie.title} />
+            <div>{movie.title}</div>
+            <div>{movie.releaseDate}</div>
+        </div>
         </Link>
     );
 }
